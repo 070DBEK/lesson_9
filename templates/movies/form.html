@@ -20,12 +20,17 @@
         {% csrf_token %}
         <label for="name">Title:</label><br>
         <input type="text" name="name" id="name" value="{{ movie.name }}"><br><br>
+
         <label for="director">Director:</label><br>
         <input type="text" name="director" id="director" value="{{ movie.director }}"><br><br>
+
         <label for="year">Release Year:</label><br>
-        <input type="number" name="year" id="year" value="{{ movie.year }}"><br><br>
+        <input type="number" name="year" id="year" min="1990" max="2050" value="{{ movie.year }}"><br><br>
+
+
         <label for="genre">Genre:</label><br>
         <input type="text" name="genre" id="genre" value="{{ movie.genre }}"><br><br>
+
         <button type="submit">{% if movie %} Update {% else %} Create {% endif %}</button>
     </form>
 </body>
