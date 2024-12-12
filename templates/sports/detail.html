@@ -1,10 +1,21 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <meta charset="UTF-8">
-  <title>$Title$</title>
+    <meta charset="UTF-8">
+    <title>{{ sport.name }}</title>
 </head>
 <body>
-$END$
+    <h1>{{ sport.name }}</h1>
+
+    <h3>Location: {{ sport.location }}</h3>
+    <h3>Release Year: {{ sport.date }}</h3>
+    <h3>Sport Type: {{ sport.sport_type }}</h3>
+
+    <button><a href="{{ sport.get_update_url }}">Update</a></button>
+
+    <button><a href="{% url 'sports:sport_delete' sport_id=sport.pk %}">Delete</a></button>
+
+    <button><a href="{% url 'sports:sport_list' %}">Back to List</a></button>
+
 </body>
 </html>

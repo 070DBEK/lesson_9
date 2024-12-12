@@ -1,10 +1,25 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <meta charset="UTF-8">
-  <title>$Title$</title>
+    <meta charset="UTF-8">
+    <title>List of Sport Events</title>
 </head>
 <body>
-$END$
+    <h1>List of Sport Events</h1>
+
+    <button>
+        <a href="{% url 'home' %}">Back to Home</a>
+    </button>
+
+    <button>
+        <a href="{% url 'sports:create_sport' %}">Add a New Sport</a>
+    </button>
+
+    {% for sport in sports %}
+        <a href="{% url 'sports:sport_detail' sport_id=sport.pk %}"><h3>{{ sport.name }}</h3></a>
+    {% empty %}
+        <h3>No Sport Event</h3>
+    {% endfor %}
+
 </body>
 </html>

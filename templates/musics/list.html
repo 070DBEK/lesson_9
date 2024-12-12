@@ -1,10 +1,24 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <meta charset="UTF-8">
-  <title>$Title$</title>
+    <meta charset="UTF-8">
+    <title>List of Musics</title>
 </head>
 <body>
-$END$
+    <h1>List of Musics</h1>
+
+    <button>
+        <a href="{% url 'home' %}">Back to Home</a>
+    </button>
+    <button>
+        <a href="{% url 'musics:create_music' %}">Add a New Album</a>
+    </button>
+
+    {% for music in musics %}
+        <a href="{% url 'musics:music_detail' music_id=music.pk %}"><h3>{{ music.album_title }}</h3></a>
+    {% empty %}
+        <h3>No Music</h3>
+    {% endfor %}
+
 </body>
 </html>

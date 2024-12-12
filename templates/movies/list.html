@@ -1,10 +1,24 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <meta charset="UTF-8">
-  <title>$Title$</title>
+    <meta charset="UTF-8">
+    <title>List of Movies</title>
 </head>
 <body>
-$END$
+    <h1>List of Movies</h1>
+
+    <button>
+        <a href="{% url 'home' %}">Back to Home</a>
+    </button>
+    <button>
+        <a href="{% url 'movies:create' %}">Add a New Group</a>
+    </button>
+
+    {% for movie in movies %}
+        <a href="{% url 'movies:detail' movie_id=movie.pk %}"><h3>{{ movie.name }}</h3></a>
+    {% empty %}
+        <h3>No Movie</h3>
+    {% endfor %}
+
 </body>
 </html>

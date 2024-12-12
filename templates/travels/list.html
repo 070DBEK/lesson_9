@@ -1,10 +1,21 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <meta charset="UTF-8">
-  <title>$Title$</title>
+    <meta charset="UTF-8">
+    <title>Travel Destinations</title>
 </head>
 <body>
-$END$
+    <h1>Travel Destinations</h1>
+
+    <a href="{% url 'home' %}"><button>Back to Home</button></a>
+    <a href="{% url 'travels:create' %}"><button>Create Destination</button></a>
+
+    {% for travel in travels %}
+        <a href="{% url 'travels:detail' travel.id %}">
+            <h3>{{ travel.destination_name }}</h3>
+        </a>
+    {% empty %}
+        <h3>No Travel Destinations</h3>
+    {% endfor %}
 </body>
 </html>
