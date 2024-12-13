@@ -6,7 +6,7 @@
 </head>
 <body>
     <h1>{% if movie %} Update Movie {% else %} Create Movie {% endif %}</h1>
-    {% if travel %}
+    {% if movie %}
         <button>
             <a href="{{ movie.get_detail_url }}" >Back to Detail</a>
         </button><br><br>
